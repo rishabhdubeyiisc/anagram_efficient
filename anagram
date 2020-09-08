@@ -1,0 +1,36 @@
+#include <iostream>
+#include <map>
+using namespace std;
+int prime_generator (int k ) { return 6*k -1 ;}
+bool is_anagram (string a , string b , std :: map < char , int > dict  ){
+    if (a.length() != b.length()){return false;}
+    if (a == b){return true ;}
+    long prod1 = 1 ;
+    long prod2 = 1 ;
+    for ( auto c : a){
+        std :: map < char , int > :: iterator it = dict.find(c);
+        if (it !=  dict.end()){
+            prod1 *= it->second;
+        }
+    }
+    for ( auto c : b){
+        std :: map < char , int > :: iterator it = dict.find(c);
+        if (it !=  dict.end()){
+            prod2 *= it->second;
+        }
+    }
+    if (prod1 == prod2){
+    return true;}
+    return false ;
+}
+int main()
+{
+    std :: map < char , int > dict ;
+    char c = 'a';
+    for (int i = 1 ; i <= 26 ; i++ , c++){
+        int prime = prime_generator(i);
+        dict.insert( std :: pair <char , int > (c , prime));
+    }
+    bool ana = is_anagram("hack","cahh", dict);
+    cout << ana << endl;
+}

@@ -20,8 +20,7 @@ bool is_anagram (string a , string b , std :: map < char , int > dict  ){
             prod2 *= it->second;
         }
     }
-    if (prod1 == prod2){
-    return true;}
+    if (prod1 == prod2){ return true; }
     return false ;
 }
 int main()

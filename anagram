@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#define console(x) cout << x << endl;
 using namespace std;
 int prime_generator (int k ) { return 6*k -1 ;}
 bool is_anagram (string a , string b , std :: map < char , int > dict  ){
@@ -32,5 +33,5 @@ int main()
         dict.insert( std :: pair <char , int > (c , prime));
     }
     bool ana = is_anagram("hack","cahh", dict);
-    cout << ana << endl;
+    console(ana);
 }

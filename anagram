@@ -1,6 +1,12 @@
 #include <iostream>
 #include <map>
+#define DEBUG 1
 #define console(x) cout << x << endl;
+#if DEBUG
+#define debug(x) cout << x << endl;
+#else 
+#define debug(x) ;
+#endif
 using namespace std;
 int prime_generator (int k ) { return 6*k -1 ;}
 bool is_anagram (string a , string b , std :: map < char , int > dict  ){
@@ -25,12 +31,13 @@ bool is_anagram (string a , string b , std :: map < char , int > dict  ){
 }
 int main()
 {
+    debug("main");
     std :: map < char , int > dict ;
     char c = 'a';
     for (int i = 1 ; i <= 26 ; i++ , c++){
         int prime = prime_generator(i);
         dict.insert( std :: pair <char , int > (c , prime));
     }
-    bool ana = is_anagram("hack","cahh", dict);
+    bool ana = is_anagram("hack","kcah", dict);
     console(ana);
 }
